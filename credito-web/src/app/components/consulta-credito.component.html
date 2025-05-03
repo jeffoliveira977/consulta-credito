@@ -1,0 +1,46 @@
+<div class="search-form">
+    <select [(ngModel)]="tipoBusca">
+      <option value="credito">Número do Crédito</option>
+      <option value="nfse">Número da NFS-e</option>
+    </select>
+  
+    <input
+      [placeholder]="tipoBusca === 'credito' ? 'Digite o número do Crédito' : 'Digite o número da NFS-e'"
+      [(ngModel)]="termoBusca"
+    />
+    <button (click)="buscar()">Buscar</button>
+  </div>
+  
+  <div *ngIf="erro" class="error">{{ erro }}</div>
+  
+  <table *ngIf="creditos.length">
+    <thead>
+      <tr>
+        <th>Número Crédito</th>
+        <th>NFS-e</th>
+        <th>Data</th>
+        <th>Valor ISSQN</th>
+        <th>Tipo</th>
+        <th>Simples Nacional</th>
+        <th>Alíquota</th>
+        <th>Faturado</th>
+        <th>Deduções</th>
+        <th>Base de Cálculo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of creditos">
+        <td>{{ c.numeroCredito }}</td>
+        <td>{{ c.numeroNfse }}</td>
+        <td>{{ c.dataConstituicao }}</td>
+        <td>{{ c.valorIssqn | currency:'BRL' }}</td>
+        <td>{{ c.tipoCredito }}</td>
+        <td>{{ c.simplesNacional }}</td>
+        <td>{{ c.aliquota }}%</td>
+        <td>{{ c.valorFaturado | currency:'BRL' }}</td>
+        <td>{{ c.valorDeducao | currency:'BRL' }}</td>
+        <td>{{ c.baseCalculo | currency:'BRL' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

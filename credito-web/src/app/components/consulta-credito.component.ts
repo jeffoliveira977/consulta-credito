@@ -28,16 +28,23 @@ export class ConsultaCreditoComponent {
       this.erro = 'Digite um número válido.';
       return;
     }
+    
 
     if (this.tipoBusca === 'nfse') {
       this.creditoService.getByNfse(this.termoBusca).subscribe({
         next: data => this.creditos = data,
-        error: err => this.erro = 'Erro ao buscar por NFS-e.'
+        error: err => {
+          console.log(err);
+          this.erro = err.error || 'Erro ao buscar por NFSe.'
+        }
       });
     } else {
       this.creditoService.getByNumeroCredito(this.termoBusca).subscribe({
         next: data => this.creditos = [data],
-        error: err => this.erro = 'Erro ao buscar por número do crédito.'
+        error: err => {
+          console.log(err);
+          this.erro = err.error || 'Erro ao buscar por número de crédito.'
+        }
       });
     }
   }

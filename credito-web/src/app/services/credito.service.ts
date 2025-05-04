@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Credito } from '../models/credito.model';
@@ -10,10 +10,10 @@ export class CreditoService {
   constructor(private http: HttpClient) {}
 
   getByNfse(numeroNfse: string): Observable<Credito[]> {
-    return this.http.get<Credito[]>(`${this.apiUrl}/${numeroNfse}`);
+    return this.http.get<Credito[]>(`${this.apiUrl}/${numeroNfse}`, {});
   }
 
   getByNumeroCredito(numeroCredito: string): Observable<Credito> {
-    return this.http.get<Credito>(`${this.apiUrl}/credito/${numeroCredito}`);
+    return this.http.get<Credito>(`${this.apiUrl}/credito/${numeroCredito}`, {});
   }
 }

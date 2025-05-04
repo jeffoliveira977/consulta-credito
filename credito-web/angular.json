@@ -67,7 +67,8 @@
               "buildTarget": "credito-web:build:production"
             },
             "development": {
-              "buildTarget": "credito-web:build:development"
+              "buildTarget": "credito-web:build:development",
+              "liveReload": true 
             }
           },
           "defaultConfiguration": "development"

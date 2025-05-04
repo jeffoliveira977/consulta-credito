@@ -1,4 +1,7 @@
-<div class="search-form">
+<div class="container">
+  <h1>API de Consulta de Créditos</h1>
+
+  <div class="search-form">
     <select [(ngModel)]="tipoBusca">
       <option value="credito">Número do Crédito</option>
       <option value="nfse">Número da NFS-e</option>
@@ -32,10 +35,10 @@
       <tr *ngFor="let c of creditos">
         <td>{{ c.numeroCredito }}</td>
         <td>{{ c.numeroNfse }}</td>
-        <td>{{ c.dataConstituicao }}</td>
+        <td>{{ c.dataConstituicao | date:'dd/MM/yyyy' }}</td>
         <td>{{ c.valorIssqn | currency:'BRL' }}</td>
         <td>{{ c.tipoCredito }}</td>
-        <td>{{ c.simplesNacional }}</td>
+        <td>{{ c.simplesNacional === 'true' ? 'Sim' : 'Não' }}</td>
         <td>{{ c.aliquota }}%</td>
         <td>{{ c.valorFaturado | currency:'BRL' }}</td>
         <td>{{ c.valorDeducao | currency:'BRL' }}</td>
@@ -43,4 +46,4 @@
       </tr>
     </tbody>
   </table>
-  
+</div>

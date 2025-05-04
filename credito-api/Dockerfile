@@ -1,17 +1,11 @@
-FROM eclipse-temurin:24-jdk
-
+FROM maven:3.9.9-amazoncorretto-24 AS builder
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package
 
-# Copiar o arquivo JAR do projeto
-COPY target/*.jar app.jar
-
-COPY src/main/resources/ resources/
-
-# Porta em que a aplicação Spring Boot vai rodar
+FROM eclipse-temurin:24-jre
+WORKDIR /app
+COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
-
-# Configurações da JVM para JDK 24
-ENV JAVA_OPTS="-XX:+UseZGC -XX:+UseContainerSupport"
-
-# Comando para executar a aplicação
 ENTRYPOINT ["java", "-jar", "app.jar"]

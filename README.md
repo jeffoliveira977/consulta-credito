@@ -132,3 +132,5 @@ VALUES
 ## Testes
 
 Testes unitários foram implementados para o back-end utilizando JUnit e Mockito. Os testes podem ser executados através da sua IDE ou utilizando o Maven wrapper: `./mvnw test`
+
+![Texto Alternativo](image.png)

@@ -121,8 +121,8 @@ VALUES
 ## Como Executar
 
 1.  Clone o repositório.
-2.  Navegue até a raiz do projeto.
-3.  Execute: `docker-compose up -d`
+2.  Navegue até a raiz do projeto (onde o arquivo `docker-compose.yml` está localizado).
+3.  Execute o seguinte comando no terminal: `docker-compose up -d`
 4.  A API estará acessível em `http://localhost:8080`.
 5.  O front-end estará acessível em `http://localhost:4200`.
 6.  O banco de dados PostgreSQL estará rodando em `http://localhost:5432`.

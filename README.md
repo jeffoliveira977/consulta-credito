@@ -1,6 +1,6 @@
 # Desafio Técnico - API de Consulta de Créditos
 
-Este repositório contém o desenvolvimento da API RESTful para a consulta de créditos constituídos, conforme o desafio técnico proposto. A API foi construída utilizando Spring Boot e fornece informações essenciais sobre os créditos.
+Este repositório contém o desenvolvimento da API RESTful para a consulta de créditos constituídos, conforme o desafio técnico proposto.
 
 ## Objetivo
 
